@@ -1,21 +1,22 @@
 
 //it works//
-solution([2,2,3,3,5]);
 
-function solution(A){
-  var b={};
-  const total=A.length;
-
-  for(var i=0; i<total; i++){
-      if(b[A[i]]){
-        delete b[A[i]];
-      }else{
-        b[A[i]]=A[i];
+function solution(A) {
+    N = A.length;
+    if (N===1){
+        return A[0];
     }
+    A.sort(function(a, b){
+        return a - b;    
+    });
+ 
+    for (i=0; i < N-1 ; i+=2){
+        if( A[i] != A[i+1]){
+            return A[i];
+            break;
+        }
     }
-    console.log(Object.keys(b)[0]);
-   return Object.keys(b)[0]
-
+    return A[N-1];
 }
 
 
